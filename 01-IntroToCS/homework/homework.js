@@ -28,20 +28,18 @@ function DecimalABinario(num) {
   var array = [];
   
 
-  for (let i=0; i<num+5; i++){
-  
-      
-    if(num>0){
-        
+  do{
+    
       array.unshift(num%2);
       num = Math.floor(num/2)
       
-    }
-     else if(num === 0){
-       break;
-    }
-    
+     
   }
+  while(num!==0);
+      
+    
+    
+  
   return array.join("");
 }
 
