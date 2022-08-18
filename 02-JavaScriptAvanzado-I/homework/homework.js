@@ -97,7 +97,8 @@ var res13 = 0 || 5          // True (mal) resultado: 5 (toma el numero que sea v
 var res14 = [3]+[3]-[10]    // -4(mal) resultado:23 (hace un proceso donde todo array que tiende a sumarse se toma como string, pero
                             // si se resta se toma como numero y arroja un resultado diferente)
 var res15 = 3>2>1           // True(mal) resultado: false (al hacer la comparacion con otro numero que no sea 1 en la tercera posicion
-                            // arroja true encaso de seguir poniendo numeros inferiores a 2, a excepcion de 1)
+                            // arroja true encaso de seguir poniendo numeros inferiores a 2, a excepcion de 1) Esto ultimo es porque
+                            // true es igual a 1, pero no mayor.
 var res16 = [] == ![]       // True
 
 console.log(res16)
@@ -158,7 +159,9 @@ console.log(test());
 // El primer console.log(obj.prop.getFullname()) da "Aurelio de Rosa" debido a que "this" hace referencia a la funcion "getFullname",
 // por lo que "this.fullname" llamará a la primera propiedad fullname que encuentre inmediatamente, la cual es del "prop", sino dará
 // undefined (en caso que no encuentre en prop)
-// El segundo console.log(test()) da "undefined" debido a que test no es una funcion,por lo que da indefinido.......... (PREGUNTAR)
+// El segundo console.log(test()) da "undefined" debido a que test no es una funcion,por lo que da indefinido (mal) resultado: Juan Perez.
+// Quokka se equivoca y no devuelve el verdadero valor porque var test = function(){return this.fullname} y fullname en el ambito global
+// es "Juan Perez"
 
 ///////////////////////////////
 
