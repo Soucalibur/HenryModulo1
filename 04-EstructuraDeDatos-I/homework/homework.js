@@ -15,10 +15,78 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  if (n===1||n===0){
+    return 1;
+  }
+  return n * nFactorial(n-1);
 }
 
 function nFibonacci(n) {
+  var array = []
+  
+  var a = 0;
+  var b = 1;
+  var c = a + b;
+  var array = [0,1];
+  
+  for (let i=0;i<15;i++){
+    
+    if (c<100){
+      
+      array.push(c)
+      //console.log(a)
+      //console.log(b)
+      //console.log(c)
+      a = b
+      //console.log(a)
+      b = c
+      //console.log(b)
+      c = a + b
+      //console.log(c) 
+        
+    }
+      
+  }
+// console.log(array)
+// console.log(buscar(7))
+return array[n];
 }
+////////////////////////////////////////////////////////
+//Primera forma de hacerlo
+//
+// function buscar(n){
+//   return array[n];
+// }
+
+// var a = 0;
+// var b = 1;
+// var c = a + b;
+// var array = [0,1];
+// for (let i=0;i<15;i++){
+//   if (c<100){
+//     array.push(c)
+//     console.log(a)
+//     console.log(b)
+//     console.log(c)
+//     a = b
+//     console.log(a)
+//     b = c
+//     console.log(b)
+//     c = a + b
+//     console.log(c) 
+    
+//   }
+  
+// }
+// console.log(array)
+// console.log(buscar(7))
+// Con la recursividad podria poner el limite para cuando la posicion en el array aparezca, asi la sentencia fibonacci no se detiene hasta encontrar la posicion
+// deseada
+/////////////////////////////////////////////////////////
+
+
+
+
 
 /*
 Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde el primer elemento que ingresa es el primero que se quita. Definir los siguientes métodos:
@@ -29,9 +97,44 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 Pueden utilizar class o función constructora.
 */
 
-function Queue() {
 
+function Queue() {
+  this.array = []
 }
+
+Queue.prototype.enqueue= function(arg){
+  return this.array.unshift(arg);
+}
+
+Queue.prototype.dequeue = function(){
+  
+  if (this.array.length===0){
+    return undefined;
+  }
+
+  var borrado = this.array.pop()
+  return borrado;
+}
+
+Queue.prototype.size = function(){
+  return this.array.length;
+} 
+
+// var x = new Queue();
+
+// x.enqueue("first")
+// x.enqueue("second");
+// x.enqueue("third")
+
+// console.log(x)
+
+// console.log(x.dequeue())
+// console.log(x)
+
+// x.enqueue("arg1")
+// console.log(x)
+
+// console.log(x.size())
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
