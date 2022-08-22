@@ -21,36 +21,38 @@ function nFactorial(n) {
   return n * nFactorial(n-1);
 }
 
-function nFibonacci(n) {
-  var array = []
+// function nFibonacci(n) {
+//   var array = []
   
-  var a = 0;
-  var b = 1;
-  var c = a + b;
-  var array = [0,1];
+//   var a = 0;
+//   var b = 1;
+//   var c = a + b;
+//   var array = [0,1];
   
-  for (let i=0;i<15;i++){
+//   for (let i=0;i<15;i++){
     
-    if (c<100){
+//     if (c<100){
       
-      array.push(c)
-      //console.log(a)
-      //console.log(b)
-      //console.log(c)
-      a = b
-      //console.log(a)
-      b = c
-      //console.log(b)
-      c = a + b
-      //console.log(c) 
+//       array.push(c)
+//       //console.log(a)
+//       //console.log(b)
+//       //console.log(c)
+//       a = b
+//       //console.log(a)
+//       b = c
+//       //console.log(b)
+//       c = a + b
+//       //console.log(c) 
         
-    }
+//     }
       
-  }
-// console.log(array)
-// console.log(buscar(7))
-return array[n];
-}
+//   }
+// // console.log(array)
+// // console.log(buscar(7))
+// return array[n];
+// }
+
+
 ////////////////////////////////////////////////////////
 //Primera forma de hacerlo
 //
@@ -84,6 +86,15 @@ return array[n];
 // deseada
 /////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////
+//Hecho por profe
+function nFibonacci(n){
+  if (n<0){return false}
+  if (n===0){return 0}
+  if (n === 1){return 1}
+  return nFibonacci(n-1) + nFibonacci(n-2)  
+}
+/////////////////////////////////////////////////////////
 
 
 
@@ -103,13 +114,13 @@ function Queue() {
 }
 
 Queue.prototype.enqueue= function(arg){
-  return this.array.unshift(arg);
+  return this.array.unshift(arg);  // no hace falta el return en esta funcion
 }
 
 Queue.prototype.dequeue = function(){
   
   if (this.array.length===0){
-    return undefined;
+    return undefined;              // Esta condicion no hace falta, ya que el return del this.array.pop() ya me retornaria unbdefined si está vacio
   }
 
   var borrado = this.array.pop()
